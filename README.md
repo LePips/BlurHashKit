@@ -1,3 +1,18 @@
-# BlurHashKit
+Basic port of the [Swift implementation for BlurHash](https://github.com/woltapp/blurhash/tree/master/Swift/BlurHashKit).
 
-This Swift Package is a basic port of the [Swift implementation for BlurHash](https://github.com/woltapp/blurhash/tree/master/Swift/BlurHashKit). This was simply created to finally stop copying the contents over to new projects and create a separation of concern for the BlurHash implementation.
+## BlurHashView
+
+`BlurHashView` has been provided as an easy way to use a BlurHash in SwiftUI.
+
+```swift
+// Example
+BlurHashView(
+    blurHash: "LGF5?xYk^6#M@-5c,1J5@[or[Q6.",
+    size: CGSize(width: 4, height: 3),
+    pixels: 512,
+    punch: 0.8
+)
+```
+
+## Development
+- [ ] macOS support

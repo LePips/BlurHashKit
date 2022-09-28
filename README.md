@@ -1,11 +1,10 @@
 Basic port of the [Swift implementation for BlurHash](https://github.com/woltapp/blurhash/tree/master/Swift/BlurHashKit).
 
-## BlurHashView
+## Usage
 
 `BlurHashView` has been provided as an easy way to use a BlurHash in SwiftUI.
 
 ```swift
-// Example
 BlurHashView(
     blurHash: "LGF5?xYk^6#M@-5c,1J5@[or[Q6.",
     size: CGSize(width: 4, height: 3),

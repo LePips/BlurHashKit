@@ -10,14 +10,24 @@ public extension BlurHash {
         CFDataSetLength(data, bytesPerRow * height)
 
         guard let pixels = CFDataGetMutableBytePtr(data) else { return nil }
+        guard let sizeValue = string.first else { return nil }
+
+        let sizeFlag = String(sizeValue).decode83()
+        let numY = (sizeFlag / 9) + 1
+        let numX = (sizeFlag % 9) + 1
+
+        let cosxi = Self.cosCache.get(length: width, numComponents: numX)
+        let cosyj = Self.cosCache.get(length: height, numComponents: numY)
 
         for y in 0 ..< height {
+            let cosj = cosyj[y]
             for x in 0 ..< width {
+                let cosi = cosxi[x]
                 var c: (Float, Float, Float) = (0, 0, 0)
 
                 for j in 0 ..< numberOfVerticalComponents {
                     for i in 0 ..< numberOfHorizontalComponents {
-                        let basis = cos(Float.pi * Float(x) * Float(i) / Float(width)) * cos(Float.pi * Float(y) * Float(j) / Float(height))
+                        let basis = cosi[i] * cosj[j]
                         let component = components[j][i]
                         c += component * basis
                     }

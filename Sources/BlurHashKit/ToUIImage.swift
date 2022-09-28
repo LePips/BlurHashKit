@@ -16,8 +16,16 @@ public extension BlurHash {
         let numY = (sizeFlag / 9) + 1
         let numX = (sizeFlag % 9) + 1
 
-        let cosxi = Self.cosCache.get(length: width, numComponents: numX)
-        let cosyj = Self.cosCache.get(length: height, numComponents: numY)
+        let cosxi = (0 ..< width).map { y in
+            (0 ..< numX).map { j in
+                cos(Float.pi * Float(y) * Float(j) / Float(width))
+            }
+        }
+        let cosyj = (0 ..< height).map { y in
+            (0 ..< numY).map { j in
+                cos(Float.pi * Float(y) * Float(j) / Float(height))
+            }
+        }
 
         for y in 0 ..< height {
             let cosj = cosyj[y]

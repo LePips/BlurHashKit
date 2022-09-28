@@ -9,7 +9,7 @@ public struct BlurHashView: UIViewRepresentable {
 
     public init(
         blurHash: String,
-        size: CGSize = .Circle(radius: 12),
+        size: CGSize = .init(width: 12, height: 12),
         pixels: Int = 1024,
         punch: Float = 1
     ) {
@@ -66,11 +66,5 @@ public class UIBlurHashImageView: UIImageView {
             )
             completion(image)
         }
-    }
-}
-
-public extension CGSize {
-    static func Circle(radius: CGFloat) -> CGSize {
-        .init(width: radius, height: radius)
     }
 }

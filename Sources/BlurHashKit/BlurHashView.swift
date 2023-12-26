@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if !os(watchOS)
 public struct BlurHashView: UIViewRepresentable {
 
     private let blurHash: String
@@ -68,3 +69,4 @@ public class UIBlurHashImageView: UIImageView {
         }
     }
 }
+#endif

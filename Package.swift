@@ -1,13 +1,14 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 6.0
 
 import PackageDescription
 
 let package = Package(
     name: "BlurHashKit",
     platforms: [
-        .iOS(.v13),
-        .tvOS(.v13),
-        .watchOS(.v4),
+        .macOS(.v12),
+        .iOS(.v15),
+        .tvOS(.v15),
+        .watchOS(.v8),
     ],
     products: [
         .library(
@@ -15,7 +16,6 @@ let package = Package(
             targets: ["BlurHashKit"]
         ),
     ],
-    dependencies: [],
     targets: [
         .target(
             name: "BlurHashKit",
